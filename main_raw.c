@@ -4,10 +4,6 @@
 #include <string.h>
 #include <errno.h>
 
-#include <sys/types.h>
-#include <sys/wait.h>
-#include <unistd.h>
-
 #define OLIVEC_IMPLEMENTATION
 #include "olive.c"
 
@@ -22,7 +18,7 @@ uint32_t pixels[WIDTH*HEIGHT];
 
 int main(void)
 {
-    int ffmpeg = ffmpeg_start_rendering(WIDTH, HEIGHT, FPS);
+    FFMPEG *ffmpeg = ffmpeg_start_rendering(WIDTH, HEIGHT, FPS);
 
     Olivec_Canvas oc = olivec_canvas(pixels, WIDTH, HEIGHT, WIDTH);
 
