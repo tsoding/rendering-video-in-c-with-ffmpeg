@@ -6,7 +6,7 @@ https://github.com/tsoding/rendering-video-in-c-with-ffmpeg/assets/165283/3a0506
 
 ### Raw Example
 
-This example generates video by filling out memory with raw pixels. It uses [olive.c](https://github.com/tsoding/olive.c) library for that.
+This example generates video by filling up memory with raw pixels. It uses [olive.c](https://github.com/tsoding/olive.c) library for that.
 
 ```console
 $ ./build_raw.sh
