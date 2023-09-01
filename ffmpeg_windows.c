@@ -47,6 +47,11 @@ FFMPEG *ffmpeg_start_rendering(size_t width, size_t height, size_t fps)
         return NULL;
     }
 
+    if (!SetHandleInformation(pipe_write, HANDLE_FLAG_INHERIT, 0)) {
+        fprintf(stderr, "ERROR: Could not SetHandleInformation: %s\n", GetLastErrorAsString());
+        return NULL;
+    }
+
     // https://docs.microsoft.com/en-us/windows/win32/procthread/creating-a-child-process-with-redirected-input-and-output
 
     STARTUPINFO siStartInfo;
