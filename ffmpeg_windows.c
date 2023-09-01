@@ -69,7 +69,7 @@ FFMPEG *ffmpeg_start_rendering(size_t width, size_t height, size_t fps)
     ZeroMemory(&piProcInfo, sizeof(PROCESS_INFORMATION));
 
     char cmd_buffer[1024*2];
-    snprintf(cmd_buffer, sizeof(cmd_buffer), "ffmpeg.exe -loglevel verbose -y -f rawvideo -pix_fmt rgba -s %dx%d -r %d -t 10 -i - -c:v libx264 -vb 2500k -c:a aac -ab 200k -pix_fmt yuv420p output.mp4", width, height, fps);
+    snprintf(cmd_buffer, sizeof(cmd_buffer), "ffmpeg.exe -loglevel verbose -y -f rawvideo -pix_fmt rgba -s %dx%d -r %d -i - -c:v libx264 -vb 2500k -c:a aac -ab 200k -pix_fmt yuv420p output.mp4", width, height, fps);
 
     BOOL bSuccess =
         CreateProcess(
@@ -145,4 +145,3 @@ void ffmpeg_end_rendering(FFMPEG *ffmpeg)
 
     CloseHandle(ffmpeg->hProcess);
 }
-
